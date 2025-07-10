@@ -71,6 +71,7 @@
     font-family: 'Garet';
     display: flex;
     flex-direction: column;
+    justify-content: center;
 
     }
     .logo{
@@ -78,5 +79,8 @@
         display: flex;
         flex-direction: column;
         justify-items: center;
+        margin: auto;
+    }
+    iframe{
         margin: auto;
     }
