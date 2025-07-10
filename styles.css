@@ -21,6 +21,8 @@
     }
 
     body{
+        width: 100vw;
+
         overflow-x: hidden;
     }
     h1{
@@ -33,10 +35,14 @@
         font-family:'Garet';
         text-align: center;
         color: black;
+        padding: 20px;
     }
     nav{
         display: flex;
-        justify-content: space-around;
+        /* justify-content: space-around; */
+        margin: auto;
+        /* justify-items: center; */
+        justify-content: center;
         /* background-color: yellowgreen; */
     }
     .container{
@@ -44,6 +50,9 @@
         /* padding-top: 2vh; */
         width: 100vw;
         height: 100vh;
+        justify-content: center;
+        margin: auto;
+        
     }
     h2{
         font-family: 'Garet';
