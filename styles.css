@@ -1,0 +1,73 @@
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+    .dm-serif-text-regular {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+
+    .dm-serif-text-regular-italic {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: italic;
+    }
+    @font-face {
+    font-family: 'IntroRust';
+    src: url(intro-rust/IntroRust-Base.otf);
+    }
+
+    @font-face {
+    font-family: 'Garet';
+    src: url(garet/Garet-Book.otf);
+    }
+
+    body{
+        overflow-x: hidden;
+    }
+    h1{
+        font-family:'IntroRust';
+        text-align: center;
+        font-size: 100px;
+
+    }
+    a{
+        font-family:'Garet';
+        text-align: center;
+        color: black;
+    }
+    nav{
+        display: flex;
+        justify-content: space-around;
+        /* background-color: yellowgreen; */
+    }
+    .container{
+        /* background-color: yellow; */
+        /* padding-top: 2vh; */
+        width: 100vw;
+        height: 100vh;
+    }
+    h2{
+        font-family: 'Garet';
+        text-align: center;
+
+    }
+    h3{
+        text-align: center;
+        font-family: "IntroRust";
+    }
+    p{
+        font-family: 'Garet';
+        text-align: center;
+    }
+    .info-div{
+    font-family: 'Garet';
+    display: flex;
+    flex-direction: column;
+
+    }
+    .logo{
+        width: 20vw;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        margin: auto;
+    }

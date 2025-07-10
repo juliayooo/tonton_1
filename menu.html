@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tonton - menu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+                <h1>TONTON</h1>
+
+        <!-- <img src="tonton.png" class="logo"> -->
+
+        <nav>
+            <a href="index.html">home</a>
+            <a href="menu.html">menu</a>
+            <a href="order.html">order ahead</a>
+        
+        </nav>
+
+        <div id="info-div">
+            <div class="menu-items"></div>
+            
+
+        </div>
+    </div>
+   
+   
+
+    <script>
+
+     
+            getData();
+
+
+        async function getData() {
+            try {
+                // Fetch data from Google Sheets
+                const x = "https://opensheet.elk.sh/1s6BUyY1va_Kt-rKz4_N-WstHL_C1WqQhyo-Klf5_ymU/1";
+                let response = await fetch(x);
+                let data = await response.json();
+                console.log(data);
+
+                const page = document.querySelector(".menu-items");
+                page.innerHTML = "<br>";
+                data.forEach((line) => {
+
+                    // MAKE HEADINGS THAT START W * BOLD
+                    if (line.item.startsWith("*")){
+                        const title = document.createElement("h3");
+                        title.textContent = line.item;
+                        title.style.fontWeight = "bold";
+                        title.textContent = line.item.replace("*", "");
+                        page.appendChild(title);
+
+                    }
+                    // ADD SPACING FOR SLASHES
+                    else if(line.item === "/"){
+                        
+                        const spacer = document.createElement("br"); 
+                        page.appendChild(spacer);
+                        
+
+                    }
+                    // PRINT OTHER LINES REGULAR
+                    else if(line.item !== "" && line.item !== "/"){
+                        const title = document.createElement("p");
+
+                        title.textContent = line.item + "  " + line.price;
+                        page.appendChild(title);
+                        
+                    }
+                    
+                }
+            
+            );
+            } catch (error) {
+            console.error("Error:", error);
+            }
+        };
+    </script>
+</body>
+
+</html>
