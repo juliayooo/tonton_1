@@ -51,9 +51,11 @@
                     // MAKE HEADINGS THAT START W * BOLD
                     if (line.item.startsWith("*")){
                         const title = document.createElement("h3");
-                        title.textContent = line.item;
+                        title.textContent = line.item.replace("*", "");;
+                        title.style.gridColumn = "1 / -1";
                         title.style.fontWeight = "bold";
-                        title.textContent = line.item.replace("*", "");
+
+                        
                         page.appendChild(title);
 
                     }
@@ -65,12 +67,30 @@
                         
 
                     }
+                    else if(line.item == ""){
+                        
+                    }
                     // PRINT OTHER LINES REGULAR
                     else if(line.item !== "" && line.item !== "/"){
-                        const title = document.createElement("p");
+                        // const title = document.createElement("p");
 
-                        title.textContent = line.item + "  " + line.price;
-                        page.appendChild(title);
+                        // title.textContent = line.item + "  " + line.price;
+                        // page.appendChild(title);
+                        const card = document.createElement("div");
+                        card.className = "menu-card";
+
+                        const productimg = document.createElement("img");
+                        productimg.src="./matcha.jpg";
+                        // productimg.style.gridColumn = "1 / -1";
+                        productimg.style.width="80%";
+                        productimg.style.margin="auto";
+
+                        const content = document.createElement("p");
+                        content.innerHTML = `${line.item}<br>${line.price}`;
+                        // content.style.textAlign= "left";
+                        card.appendChild(productimg);
+                        card.appendChild(content);
+                        page.appendChild(card);
                         
                     }
                     

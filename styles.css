@@ -19,6 +19,11 @@
     font-family: 'Garet';
     src: url(garet/Garet-Book.otf);
     }
+    @font-face {
+        font-family: 'GaretBold';
+        src: url(garet/Garet-Heavy.otf);
+        font-weight: 'bold';
+    }
 
     body{
         width: 100vw;
@@ -29,8 +34,8 @@
         font-family:'IntroRust';
         text-align: center;
         font-size: 100px;
+        margin: auto;
         margin-top: 30px;
-        margin-bottom: 0;
 
     }
     a{
@@ -63,17 +68,22 @@
     }
     h3{
         text-align: center;
-        font-family: "IntroRust";
+        font-family: "GaretBold";
+        letter-spacing: 1px;
+        font-size: 30px;
     }
     p{
         font-family: 'Garet';
         text-align: center;
+
     }
     .info-div{
     font-family: 'Garet';
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
+
 
     }
     .logo{
@@ -84,5 +94,35 @@
         margin: auto;
     }
     iframe{
+        margin: auto;
+    }
+
+    .menu-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+    margin: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    max-width: 800px;  
+    justify-content: center;
+    margin: 40px auto;
+
+    
+    }
+
+    .menu-card {
+    border-radius: 8px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; 
+    /* text-align: justify;
+    text-justify: distribute; */
+    }
+    .map{
+        max-width: 80vw;
         margin: auto;
     }
