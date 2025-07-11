@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tonton - menu</title>
+    <link rel="icon" type="image/x-icon" href="/tonton.png">
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -87,7 +89,6 @@
 
                         const content = document.createElement("p");
                         content.innerHTML = `${line.item}<br>${line.price}`;
-                        // content.style.textAlign= "left";
                         card.appendChild(productimg);
                         card.appendChild(content);
                         page.appendChild(card);
