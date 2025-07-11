@@ -53,6 +53,8 @@
         /* background-color: yellowgreen; */
     }
     .container{
+        overflow-x: hidden;
+
         /* background-color: yellow; */
         /* padding-top: 2vh; */
         width: 90vw;
