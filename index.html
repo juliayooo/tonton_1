@@ -7,70 +7,53 @@
     <link rel="icon" type="image/x-icon" href="/tonton.png">
     <link rel="stylesheet" href="./styles.css">
     <style>
-    header{
-        position: sticky;
-        width: 100vw;
-        height: auto;
-        /* background-color: #f0f0f0; */
-        /* justify-content: right; */
-        display: flex;
-        flex-direction: row;
-        height: 20vh;
-        justify-items: right;
-    }
-    .btn{
-        width: 100px;
-        height: 100px;
-        margin-left: auto;
-        margin-right: 50px;
-        /* display: flex; */
-        /* position: relative; */
-
-    }
-    #hamburgerMenu {
-        position: absolute;
-        top: 20vh;
-        width: 100%;
-        right: 0;
-        background: #fff;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        z-index: 1000;
-          transition-delay: 1s;
-            transition-duration: 2s;
-
-
-        
-    }
-
+  
 
     </style>
 </head>
 <body>
-     <header><h1>TONTON</h1>
-           
+        <header>
+        <h1>TONTON</h1>
         <input class="btn" type="image" src="./hamburger.png" id="hamburgerBtn"/>
 
-        <nav id="hamburgerMenu" style="display:none; position:absolute; top:20vh; right:0; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.15); z-index:1000; transition-timing-function: ease;">
+        <nav id="hamburgerMenu" style="display:none; opacity:0; position:absolute; top:20vh; right:0; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.15); z-index:1000; transition: opacity 0.3s ease;">
             <a href="index.html" style="display:block; padding:10px;">home</a>
             <a href="menu.html" style="display:block; padding:10px;">menu</a>
             <a href="https://gosnappy.io/owa/r/tonton-matcha-coffee/4908/menu_664/?skipBeforeEnter=true" style="display:block; padding:10px;">order (via snappy)</a>
         </nav>
         <script>
-        document.getElementById('hamburgerBtn').addEventListener('click', function(e) {
+        const menu = document.getElementById('hamburgerMenu');
+        const btn = document.getElementById('hamburgerBtn');
+
+        btn.addEventListener('click', function(e) {
             e.stopPropagation();
-            const menu = document.getElementById('hamburgerMenu');
-            menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
-            
+            if (menu.style.display === 'none' || menu.style.display === '') {
+                menu.style.display = 'block';
+                setTimeout(() => { menu.style.opacity = '1'; }, 10);
+            } else {
+                menu.style.opacity = '0';
+                menu.addEventListener('transitionend', function handler() {
+                    menu.style.display = 'none';
+                    menu.removeEventListener('transitionend', handler);
+                });
+            }
         });
-        document.addEventListener('click', function(e) {
-            document.getElementById('hamburgerMenu').style.display = 'none';
+
+        document.addEventListener('click', function() {
+            if (menu.style.display === 'block') {
+                menu.style.opacity = '0';
+                menu.addEventListener('transitionend', function handler() {
+                    menu.style.display = 'none';
+                    menu.removeEventListener('transitionend', handler);
+                });
+            }
         });
-        document.getElementById('hamburgerMenu').addEventListener('click', function(e) {
+
+        menu.addEventListener('click', function(e) {
             e.stopPropagation();
         });
         </script>
-
-        </header>
+    </header>
         
     <div class="container">
        

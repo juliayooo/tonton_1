@@ -9,20 +9,55 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1>TONTON</h1>
+        <input class="btn" type="image" src="./hamburger.png" id="hamburgerBtn"/>
+
+        <nav id="hamburgerMenu" style="display:none; opacity:0; position:absolute; top:20vh; right:0; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.15); z-index:1000; transition: opacity 0.3s ease;">
+            <a href="index.html" style="display:block; padding:10px;">home</a>
+            <a href="menu.html" style="display:block; padding:10px;">menu</a>
+            <a href="https://gosnappy.io/owa/r/tonton-matcha-coffee/4908/menu_664/?skipBeforeEnter=true" style="display:block; padding:10px;">order (via snappy)</a>
+        </nav>
+        <script>
+        const menu = document.getElementById('hamburgerMenu');
+        const btn = document.getElementById('hamburgerBtn');
+
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (menu.style.display === 'none' || menu.style.display === '') {
+                menu.style.display = 'block';
+                setTimeout(() => { menu.style.opacity = '1'; }, 10);
+            } else {
+                menu.style.opacity = '0';
+                menu.addEventListener('transitionend', function handler() {
+                    menu.style.display = 'none';
+                    menu.removeEventListener('transitionend', handler);
+                });
+            }
+        });
+
+        document.addEventListener('click', function() {
+            if (menu.style.display === 'block') {
+                menu.style.opacity = '0';
+                menu.addEventListener('transitionend', function handler() {
+                    menu.style.display = 'none';
+                    menu.removeEventListener('transitionend', handler);
+                });
+            }
+        });
+
+        menu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+        </script>
+    </header>
+    <div class="container">
         <h2>MATCHA & COFFEE BAR</h2>
 
 
         <!-- <img src="tonton.png" class="logo"> -->
 
-        <nav>
-            <a href="index.html">home</a>
-            <a href="menu.html">menu</a>
-            <a href="https://gosnappy.io/owa/r/tonton-matcha-coffee/4908/menu_664/?skipBeforeEnter=true">order (via snappy)</a>
-        
-        </nav>
-
+       
         <div id="info-div">
             <div class="menu-items"></div>
             
@@ -32,103 +67,82 @@
    
    
 
-    <script type="module">
-
-
-  // Import the functions you need from the SDKs you need
+   <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-  import { getStorage, ref, getDownloadURL } from "firebase/storage";
+  import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-storage.js";
 
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
   const firebaseConfig = {
     apiKey: "AIzaSyAVlvBKCE4q2zKMHwgdJ1HbuNnD15wmgzg",
     authDomain: "tonton-377bb.firebaseapp.com",
     projectId: "tonton-377bb",
-    storageBucket: "tonton-377bb.firebasestorage.app",
+    storageBucket: "tonton-377bb.appspot.com", // <- corrected domain!
     messagingSenderId: "663063025148",
     appId: "1:663063025148:web:a96b8fc6b174510f774e79"
   };
 
-  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  const storage = getStorage();
+  const storage = getStorage(app);
 
+  getData();
 
-     
-            getData();
+  async function getData() {
+    try {
+      const sheetURL = "https://opensheet.elk.sh/1s6BUyY1va_Kt-rKz4_N-WstHL_C1WqQhyo-Klf5_ymU/1";
+      const response = await fetch(sheetURL);
+      const data = await response.json();
+      console.log(data);
 
+      const page = document.querySelector(".menu-items");
+      page.innerHTML = "<br>";
 
-        async function getData() {
+      for (const line of data) {
+        if (line.item.startsWith("*")) {
+          const title = document.createElement("h3");
+          title.textContent = line.item.replace("*", "");
+          title.style.gridColumn = "1 / -1";
+          title.style.fontWeight = "bold";
+          page.appendChild(title);
+
+        } else if (line.item === "/") {
+          const spacer = document.createElement("br");
+          page.appendChild(spacer);
+
+        } else if (line.item !== "") {
+          const card = document.createElement("div");
+          card.className = "menu-card";
+
+          const content = document.createElement("p");
+          content.innerHTML = `${line.item}`;
+          card.appendChild(content);
+
+          // If a filename is provided, try loading the image from Firebase
+          if (line.filename) {
             try {
-                // Fetch data from Google Sheets
-                const x = "https://opensheet.elk.sh/1s6BUyY1va_Kt-rKz4_N-WstHL_C1WqQhyo-Klf5_ymU/1";
-                let response = await fetch(x);
-                let data = await response.json();
-                console.log(data);
+              const filename = `assets/items/${line.filename}.jpg`;
+              const imageRef = ref(storage, filename);
+              const imageUrl = await getDownloadURL(imageRef);
 
-                const page = document.querySelector(".menu-items");
-                page.innerHTML = "<br>";
-                data.forEach((line) => {
-
-                    // MAKE HEADINGS THAT START W * BOLD
-                    if (line.item.startsWith("*")){
-                        const title = document.createElement("h3");
-                        title.textContent = line.item.replace("*", "");;
-                        title.style.gridColumn = "1 / -1";
-                        title.style.fontWeight = "bold";
-
-                        
-                        page.appendChild(title);
-
-                    }
-                    // ADD SPACING FOR SLASHES
-                    else if(line.item === "/"){
-                        
-                        const spacer = document.createElement("br"); 
-                        page.appendChild(spacer);
-                        
-
-                    }
-                    else if(line.item == ""){
-                        
-                    }
-                    // PRINT OTHER LINES REGULAR
-                    else if(line.item !== "" && line.item !== "/"){
-                        // const title = document.createElement("p");
-
-                        // title.textContent = line.item + "  " + line.price;
-                        // page.appendChild(title);
-                        const card = document.createElement("div");
-                        card.className = "menu-card";
-
-
-                        const filename = line.filename;
-                        const storageRef = ref(storage, filename);
-                        const productimg = document.createElement("img");
-                        productimg.src="./matcha.jpg";
-                        // productimg.style.gridColumn = "1 / -1";
-                        productimg.style.width="80%";
-                        productimg.style.margin="auto";
-
-                        const content = document.createElement("p");
-                        content.innerHTML = `${line.item}`;
-                        card.appendChild(productimg);
-                        card.appendChild(content);
-                        page.appendChild(card);
-                        
-                    }
-                    
-                }
-            
-            );
-            } catch (error) {
-            console.error("Error:", error);
+              const productimg = document.createElement("img");
+              productimg.src = imageUrl;
+              productimg.alt = line.item;
+              productimg.style.width = "80%";
+              productimg.style.margin = "auto";
+              card.insertBefore(productimg, content); // insert image before text
+            } catch (err) {
+              console.warn(`Image not found for ${line.filename}:`, err);
+              // Optionally add a placeholder image or skip
             }
-        };
-    </script>
+          }
+
+          page.appendChild(card);
+        }
+      }
+    } catch (error) {
+      console.error("Error loading menu:", error);
+    }
+  }
+</script>
+
 </body>
 
 </html>
