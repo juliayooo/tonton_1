@@ -75,7 +75,7 @@
     apiKey: "AIzaSyAVlvBKCE4q2zKMHwgdJ1HbuNnD15wmgzg",
     authDomain: "tonton-377bb.firebaseapp.com",
     projectId: "tonton-377bb",
-    storageBucket: "tonton-377bb.appspot.com", // <- corrected domain!
+    storageBucket: "tonton-377bb.firebasestorage.app", // <- corrected domain!
     messagingSenderId: "663063025148",
     appId: "1:663063025148:web:a96b8fc6b174510f774e79"
   };
@@ -119,6 +119,7 @@
           if (line.filename) {
             try {
               const filename = `assets/items/${line.filename}.jpg`;
+              console.log("FILENAME: " + filename);
               const imageRef = ref(storage, filename);
               const imageUrl = await getDownloadURL(imageRef);
 
