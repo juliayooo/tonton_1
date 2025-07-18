@@ -7,23 +7,75 @@
     <link rel="icon" type="image/x-icon" href="/tonton.png">
     <link rel="stylesheet" href="./styles.css">
     <style>
+    header{
+        position: sticky;
+        width: 100vw;
+        height: auto;
+        /* background-color: #f0f0f0; */
+        /* justify-content: right; */
+        display: flex;
+        flex-direction: row;
+        height: 20vh;
+        justify-items: right;
+    }
+    .btn{
+        width: 100px;
+        height: 100px;
+        margin-left: auto;
+        margin-right: 50px;
+        /* display: flex; */
+        /* position: relative; */
 
+    }
+    #hamburgerMenu {
+        position: absolute;
+        top: 20vh;
+        width: 100%;
+        right: 0;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        z-index: 1000;
+          transition-delay: 1s;
+            transition-duration: 2s;
+
+
+        
+    }
 
 
     </style>
 </head>
 <body>
+     <header><h1>TONTON</h1>
+           
+        <input class="btn" type="image" src="./hamburger.png" id="hamburgerBtn"/>
+
+        <nav id="hamburgerMenu" style="display:none; position:absolute; top:20vh; right:0; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.15); z-index:1000; transition-timing-function: ease;">
+            <a href="index.html" style="display:block; padding:10px;">home</a>
+            <a href="menu.html" style="display:block; padding:10px;">menu</a>
+            <a href="https://gosnappy.io/owa/r/tonton-matcha-coffee/4908/menu_664/?skipBeforeEnter=true" style="display:block; padding:10px;">order (via snappy)</a>
+        </nav>
+        <script>
+        document.getElementById('hamburgerBtn').addEventListener('click', function(e) {
+            e.stopPropagation();
+            const menu = document.getElementById('hamburgerMenu');
+            menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+            
+        });
+        document.addEventListener('click', function(e) {
+            document.getElementById('hamburgerMenu').style.display = 'none';
+        });
+        document.getElementById('hamburgerMenu').addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+        </script>
+
+        </header>
+        
     <div class="container">
-        <h1>TONTON</h1>
+       
         <h2>MATCHA & COFFEE BAR</h2>
         <!-- <img src="tonton.png" class="logo"> -->
-
-        <nav>
-            <a href="index.html">home</a>
-            <a href="menu.html">menu</a>
-            <a href="order.html">order ahead</a>
-        
-        </nav>
 
         <div class="info-div">
             <h2>VISIT US</h2>
@@ -36,7 +88,7 @@
             <p>monday - friday: 7am - 6pm <br> 
             saturday - sunday: 8am - 5pm
             </p>
-            <h2>Contact Us</h2>
+            <h2>CONTACT</h2>
             <p>tontonmatcha@gmail.com</p>
         </div>
     </div>

@@ -19,7 +19,7 @@
         <nav>
             <a href="index.html">home</a>
             <a href="menu.html">menu</a>
-            <a href="order.html">order ahead</a>
+            <a href="https://gosnappy.io/owa/r/tonton-matcha-coffee/4908/menu_664/?skipBeforeEnter=true">order (via snappy)</a>
         
         </nav>
 
@@ -32,7 +32,30 @@
    
    
 
-    <script>
+    <script type="module">
+
+
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+  import { getStorage, ref, getDownloadURL } from "firebase/storage";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAVlvBKCE4q2zKMHwgdJ1HbuNnD15wmgzg",
+    authDomain: "tonton-377bb.firebaseapp.com",
+    projectId: "tonton-377bb",
+    storageBucket: "tonton-377bb.firebasestorage.app",
+    messagingSenderId: "663063025148",
+    appId: "1:663063025148:web:a96b8fc6b174510f774e79"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const storage = getStorage();
+
 
      
             getData();
@@ -81,6 +104,9 @@
                         const card = document.createElement("div");
                         card.className = "menu-card";
 
+
+                        const filename = line.filename;
+                        const storageRef = ref(storage, filename);
                         const productimg = document.createElement("img");
                         productimg.src="./matcha.jpg";
                         // productimg.style.gridColumn = "1 / -1";
@@ -88,7 +114,7 @@
                         productimg.style.margin="auto";
 
                         const content = document.createElement("p");
-                        content.innerHTML = `${line.item}<br>${line.price}`;
+                        content.innerHTML = `${line.item}`;
                         card.appendChild(productimg);
                         card.appendChild(content);
                         page.appendChild(card);
