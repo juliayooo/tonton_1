@@ -24,6 +24,22 @@
         src: url(garet/Garet-Heavy.otf);
         font-weight: 'bold';
     }
+    /* @media screen and (max-width: 600px) {
+        h1 {
+            font-size: 50px;
+        }
+        .container {
+            width: 100%;
+            height: auto;
+            padding: 20px;
+        }
+        .btn {
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+        }
+         */
+    /* } */
 
     body{
         /* width: 100vw; */
@@ -33,7 +49,7 @@
     h1{
         font-family:'IntroRust';
         text-align: left;
-        font-size: 90px;
+        font-size: 70px;
         margin: 0px;
      
 
@@ -43,6 +59,7 @@
         text-align: center;
         color: black;
         padding: 20px;
+        font-size: large;
     }
     nav{
         display: flex;
@@ -69,6 +86,7 @@
         font-family: 'Garet';
         text-align: center;
         margin: 0px;
+        max-height: fit-content;
 
     }
     h3{
@@ -80,6 +98,8 @@
     p{
         font-family: 'Garet';
         text-align: center;
+        font-size: larger;
+        font-weight: bold;
 
     }
     .info-div{
@@ -111,7 +131,7 @@
     margin: 20px;
     padding: 0 10px;
     box-sizing: border-box;
-    max-width: 800px;  
+    max-width: 100vw;  
     justify-content: center;
     margin: 40px auto;
 
@@ -144,8 +164,9 @@
         /* justify-content: right; */
         display: flex;
         flex-direction: row;
-        height: 20vh;
+        /* height: 20vh; */
         justify-items: right;
+        align-items: center;
     }
     .btn{
         width: 100px;
@@ -158,14 +179,46 @@
     }
     #hamburgerMenu {
         position: absolute;
-        top: 20vh;
+        /* top: 10vh; */
         width: 100%;
         right: 0;
         background: #fff;
         box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         z-index: 1000;
         opacity: 70%;
+        display: inline-block;
 
 
         
+    }
+    .image-crop-wrapper{
+       width: 100%;
+        aspect-ratio: 1 / 1; /* maintain square shape — adjust as needed */
+        overflow: hidden;
+        position: relative;
+    }
+    .image-crop-wrapper img {
+        position: absolute;
+        top: -60%; /* adjust to show the bottom half */
+        left: 0;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    .slideshow-container {
+        /* margin: auto; */
+        /* position: relative; */
+        /* width: 30vw; */
+        justify-content: center;
+        justify-items: center;
+        margin-bottom: 10vh;
+
+    }
+    .slide{
+        width: 40vw;
+        height: auto;
+        margin: auto;
+    }
+    .headerlbl{
+        margin-left: 50px;
     }

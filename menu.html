@@ -11,6 +11,8 @@
 <body>
     <header>
         <h1>TONTON</h1>
+                <h2  class="headerlbl">MATCHA & COFFEE BAR</h2>
+
         <input class="btn" type="image" src="./hamburger.png" id="hamburgerBtn"/>
 
         <nav id="hamburgerMenu" style="display:none; opacity:0; position:absolute; top:20vh; right:0; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.15); z-index:1000; transition: opacity 0.3s ease;">
@@ -52,7 +54,6 @@
         </script>
     </header>
     <div class="container">
-        <h2>MATCHA & COFFEE BAR</h2>
 
 
         <!-- <img src="tonton.png" class="logo"> -->
@@ -123,15 +124,17 @@
               const imageRef = ref(storage, filename);
               const imageUrl = await getDownloadURL(imageRef);
 
-              const productimg = document.createElement("img");
-              productimg.src = imageUrl;
-              productimg.alt = line.item;
-              productimg.style.width = "80%";
-              productimg.style.margin = "auto";
-              card.insertBefore(productimg, content); // insert image before text
+              const wrapper = document.createElement("div");
+                wrapper.className = "image-crop-wrapper";
+
+                const productimg = document.createElement("img");
+                productimg.src = imageUrl;
+                productimg.alt = line.item;
+
+                wrapper.appendChild(productimg);
+                card.insertBefore(wrapper, content);
             } catch (err) {
               console.warn(`Image not found for ${line.filename}:`, err);
-              // Optionally add a placeholder image or skip
             }
           }
 

@@ -14,6 +14,8 @@
 <body>
         <header>
         <h1>TONTON</h1>
+                <h2 class="headerlbl">MATCHA & COFFEE BAR</h2>
+
         <input class="btn" type="image" src="./hamburger.png" id="hamburgerBtn"/>
 
         <nav id="hamburgerMenu" style="display:none; opacity:0; position:absolute; top:20vh; right:0; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.15); z-index:1000; transition: opacity 0.3s ease;">
@@ -52,13 +54,33 @@
         menu.addEventListener('click', function(e) {
             e.stopPropagation();
         });
+
+        let slideIndex = 0;
+        const slides = document.getElementsByClassName("slide");
+
+        function showSlides() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+
+        document.addEventListener("DOMContentLoaded", showSlides);
         </script>
     </header>
         
     <div class="container">
        
-        <h2>MATCHA & COFFEE BAR</h2>
-        <!-- <img src="tonton.png" class="logo"> -->
+         <div class="slideshow-container">
+    <img class="slide" src="./assets/home/1.jpg" alt="Slide 1">
+    <img class="slide" src="./assets/home/2.jpg" alt="Slide 2">
+    <img class="slide" src="./assets/home/3.jpg" alt="Slide 3">
+    <img class="slide" src="./assets/home/4.jpg" alt="Slide 3">
+
+  </div>
 
         <div class="info-div">
             <h2>VISIT US</h2>
