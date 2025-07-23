@@ -125,7 +125,7 @@
           // If a filename is provided, try loading the image from Firebase
           if (line.filename) {
             try {
-              const filename = `assets/items/${line.filename}.jpg`;
+              const filename = `assets/items_resized/${line.filename}.jpg`;
               console.log("FILENAME: " + filename);
               const imageRef = ref(storage, filename);
               const imageUrl = await getDownloadURL(imageRef);
