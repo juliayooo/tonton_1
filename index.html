@@ -13,19 +13,24 @@
 </head>
 <body>
         <header>
-        <h1>TONTON</h1>
-                <h2 class="headerlbl">MATCHA & COFFEE BAR</h2>
+        <a href="index.html" style="text-decoration:none;" ><h1>TONTON</h1></a>
+                <h2 class="headerlbl">MATCHA + COFFEE BAR</h2>
 
         <input class="btn" type="image" src="./hamburger.png" id="hamburgerBtn"/>
 
-        <nav id="hamburgerMenu" style="display:none; opacity:0; position:absolute; top:20vh; right:0; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.15); z-index:1000; transition: opacity 0.3s ease;">
-            <a href="index.html" style="display:block; padding:10px;">home</a>
-            <a href="menu.html" style="display:block; padding:10px;">menu</a>
-            <a href="https://gosnappy.io/owa/r/tonton-matcha-coffee/4908/menu_664/?skipBeforeEnter=true" style="display:block; padding:10px;">order (via snappy)</a>
+        <nav id="hamburgerMenu" style="display:none; opacity:0; position:absolute; right:0; background:#fff;  z-index:1000; transition: opacity 0.3s ease;">
+            <a href="index.html" style="display:block; padding:10px;">HOME</a>
+            <a href="menu.html" style="display:block; padding:10px;">MENU</a>
+            <a href="https://gosnappy.io/owa/r/tonton-matcha-coffee/4908/menu_664/?skipBeforeEnter=true" style="display:block; padding:10px;">ORDER (via snappy)</a>
         </nav>
         <script>
         const menu = document.getElementById('hamburgerMenu');
         const btn = document.getElementById('hamburgerBtn');
+        menu.style.backgroundColor = 'rgb(226,226,226)';
+        menu.style.borderRadius = '5%';
+        menu.style.top = '80px';
+        menu.style.textAlign = 'left';
+
 
         btn.addEventListener('click', function(e) {
             e.stopPropagation();
@@ -46,6 +51,7 @@
                 menu.style.opacity = '0';
                 menu.addEventListener('transitionend', function handler() {
                     menu.style.display = 'none';
+                    
                     menu.removeEventListener('transitionend', handler);
                 });
             }
@@ -83,18 +89,21 @@
   </div>
 
         <div class="info-div">
-            <h2>VISIT US</h2>
-            <p>1-100 Western Battery Road <br>
+            <h2 class="home_labels">VISIT US</h2>
+            <p>1-100 Western Battery Road <br><br>
             Toronto Ontario</p>
-            <div class="map">
+            <!-- <div class="map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d721.8568857504887!2d-79.41649013036498!3d43.639272398193924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b35003cf18267%3A0xf4915e87e3c6c44!2sTonTon%20Macha%20%2B%20Coffee!5e0!3m2!1sen!2sus!4v1752253928833!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mapframe"></iframe>
-            </div>
-            <h2>HOURS</h2>
-            <p>monday - friday: 7am - 6pm <br> 
-            saturday - sunday: 8am - 5pm
+            </div> -->
+            <h2 class="home_labels">HOURS</h2>
+            <p>Monday - Friday: 7am - 6pm <br> <br>
+            Saturday - Sunday: 8am - 5pm
             </p>
-            <h2>CONTACT</h2>
-            <p>tontonmatcha@gmail.com</p>
+            <h2 class="home_labels">CONTACT</h2>
+            <p>tontonmatcha@gmail.com</p><br>
+            <a href="https://www.instagram.com/tonton.matcha.coffee" target="_blank" >
+                <img  src="./assets/ig.png" alt="Instagram" class="ig-icon">
+            </a>
         </div>
     </div>
     

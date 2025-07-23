@@ -9,20 +9,26 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <header>
-        <h1>TONTON</h1>
-                <h2  class="headerlbl">MATCHA & COFFEE BAR</h2>
+    <header style="position: relative; z-index: 1001;">
+        <a href="index.html" style="text-decoration:none;" ><h1>TONTON</h1></a>
+        <h2 class="headerlbl">MATCHA + COFFEE BAR</h2>
 
         <input class="btn" type="image" src="./hamburger.png" id="hamburgerBtn"/>
 
-        <nav id="hamburgerMenu" style="display:none; opacity:0; position:absolute; top:20vh; right:0; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.15); z-index:1000; transition: opacity 0.3s ease;">
-            <a href="index.html" style="display:block; padding:10px;">home</a>
-            <a href="menu.html" style="display:block; padding:10px;">menu</a>
-            <a href="https://gosnappy.io/owa/r/tonton-matcha-coffee/4908/menu_664/?skipBeforeEnter=true" style="display:block; padding:10px;">order (via snappy)</a>
+        <nav id="hamburgerMenu" style="display:none; opacity:0; position:absolute; left:0; right:0; top:70%; background:#fff; z-index:1000; transition: opacity 0.3s ease;">
+            <a href="index.html" style="display:block; padding:10px;">HOME</a>
+            <a href="menu.html" style="display:block; padding:10px;">MENU</a>
+            <a href="https://gosnappy.io/owa/r/tonton-matcha-coffee/4908/menu_664/?skipBeforeEnter=true" style="display:block; padding:10px;">ORDER (via snappy)</a>
         </nav>
         <script>
         const menu = document.getElementById('hamburgerMenu');
         const btn = document.getElementById('hamburgerBtn');
+        menu.style.backgroundColor = 'rgb(226,226,226)';
+        menu.style.borderRadius = '5%';
+        menu.style.top = '80px';
+        menu.style.textAlign = 'left';
+
+
 
         btn.addEventListener('click', function(e) {
             e.stopPropagation();
