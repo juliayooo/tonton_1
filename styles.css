@@ -243,6 +243,11 @@
 
 
     @media screen and (max-width: 600px) {
+    body{
+        width: 100vw;
+        
+        overflow-x: hidden;
+    }
   h1 {
     font-size: 40px;
     text-align: center;
@@ -284,6 +289,7 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 10px;
+    position: sticky;
   }
 
   .logo {
