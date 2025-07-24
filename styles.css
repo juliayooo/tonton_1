@@ -297,6 +297,7 @@
     gap: 10px;
     padding: 0 5px;
     margin: 20px 0;
+    max-width: 100%;
   }
 
 
@@ -313,6 +314,7 @@
   }
 
   #hamburgerMenu {
+    max-width: 100%;
     top: 15vh;
     font-size: 18px;
     z-index: 1000;
