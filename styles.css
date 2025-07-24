@@ -239,7 +239,7 @@
 
     @media screen and (max-width: 600px) {
     body{
-        width: 100vw;
+        width: 100%;
         
         overflow-x: hidden;
     }
@@ -266,7 +266,7 @@
     width: 100%;
     height: auto;
     padding: 10px;
-    max-width: 100vw;
+    max-width: 100%;
   }
 
   .btn {
@@ -299,15 +299,7 @@
     margin: 20px 0;
   }
 
-  .map {
-    max-width: 100vw;
-    padding: 0 10px;
-  }
 
-  .mapframe {
-    width: 100%;
-    height: 300px;
-  }
 
   .slide {
     width: 90vw;
