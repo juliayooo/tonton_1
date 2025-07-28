@@ -114,11 +114,8 @@
 
     }
     .logo{
-        width: 20vw;
-        display: flex;
-        flex-direction: column;
-        justify-items: center;
-        margin: auto;
+        padding: 0;
+        margin-left: 20px;
     }
     iframe{
         margin: auto;
@@ -159,16 +156,23 @@
         height: auto;
         z-index: 1001;
         display: flex;
+
         flex-direction: row;
-        justify-items: right;
-        align-items: center;
+        justify-content: space-between;
+        /* align-items: center; */
+    }
+    .labels-wrap{
+       display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     }
     .btn{
         width: 100px;
         height: 100px;
         margin-left: auto;
         margin-right: 50px;
-        /* display: flex; */
+        top: 0;
+        display: flex;
         /* position: relative; */
 
     }
@@ -226,7 +230,8 @@
     }
   
     .headerlbl{
-        margin-left: 50px;
+      text-align: left;
+      margin-left: 20px;
     }
     .home_labels{
         color: rgb(79, 178, 79);
@@ -273,11 +278,20 @@
     width: 60px;
     height: 60px;
     margin-right: 20px;
-  }
+        margin-left: auto;
 
+
+  }
+  .labels-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .headerlbl {
     margin-left: 14px;
     font-size: 14px;
+    text-align: left;
+
 
   }
 
@@ -290,9 +304,7 @@
     position: sticky;
   }
 
-  .logo {
-    width: 50vw;
-  }
+
 
   .menu-items {
     grid-template-columns: 1fr;
