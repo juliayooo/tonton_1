@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body{background:#e2e2e2;}
+/* 
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+    .dm-serif-text-regular {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    } */
+
+    .dm-serif-text-regular-italic {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: italic;
+    }
+    @font-face {
+    font-family: 'IntroRust';
+    src: url(/intro-rust/IntroRust-Base.otf);
+    }
+
+    @font-face {
+    font-family: 'Garet';
+    src: url(/garet/Garet-Book.otf);
+    }
+    @font-face {
+        font-family: 'GaretBold';
+        src: url(/garet/Garet-Heavy.otf);
+        font-weight: 'bold';
+    }
