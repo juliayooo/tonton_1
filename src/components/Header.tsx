@@ -36,7 +36,7 @@ export default function Header() {
         >
           <img
             style={{ width: '40px', height: '40px' }}
-            src="./hamburger.png"
+            src="/assets/hamburger.png"
             alt="Menu"
           />
         </button>
