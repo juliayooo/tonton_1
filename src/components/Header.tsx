@@ -36,15 +36,15 @@ export default function Header() {
         >
           <img
             style={{ width: '40px', height: '40px' }}
-            src="/assets/hamburger.png"
+            src="/tonton/assets/hamburger.png"
             alt="Menu"
           />
         </button>
 
         {open && (
           <nav ref={ref} className="z-100 w-[20vw] border-2 border-gray-300 absolute right-0 opacity-60 bg-grey-250 rounded-xl">
-            <Link to="/home" className="text-center block p-2" style={{fontFamily: 'Garet'}} >HOME</Link>
-            <Link to="/menu" style={{fontFamily: 'Garet'}} className="text-center block p-2">MENU</Link>
+            <Link to="/tonton/home" className="text-center block p-2" style={{fontFamily: 'Garet'}} >HOME</Link>
+            <Link to="/tonton/menu" style={{fontFamily: 'Garet'}} className="text-center block p-2">MENU</Link>
             <a className="text-center block p-2" style={{fontFamily: 'Garet'}} target="_blank"href="https://gosnappy.io/owa/r/tonton-matcha-coffee/4908/menu_664/?skipBeforeEnter=true">ORDER AHEAD</a>
           </nav>
         )}
